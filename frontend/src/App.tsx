@@ -13,6 +13,7 @@ import Private from "./pages/Private";
 import MyNews from "./pages/MyNews";
 import CreateNews from "./pages/CreateNews";
 import Account from "./pages/Account";
+import Employees from "./pages/Employees";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ function App() {
                   <Route index element={<Account />} />
                   <Route path="mynews" element={<MyNews />} />
                   <Route path="create_news" element={<CreateNews />} />
+                  <Route path="employees" element={<Employees />} />
                 </Route>
               </Routes>
             </main>

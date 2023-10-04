@@ -2,9 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TiThListOutline } from "react-icons/ti";
+import { HiOutlineUsers } from "react-icons/hi";
+import { useAuth } from "../../providers/AuthProvider";
 
 export default function Sidebar() {
   const { pathname } = useLocation();
+  const { user } = useAuth();
 
   return (
     <aside className="sidebar">
@@ -40,6 +43,19 @@ export default function Sidebar() {
             My News
           </Link>
         </li>
+        {user?.role === "admin" ? (
+          <li>
+            <Link
+              to="/account/employees"
+              className={`sidebarItem ${
+                pathname === "/account/employees" ? "active" : ""
+              }`}
+            >
+              <HiOutlineUsers className="mr-2 w-6 h-6" />
+              Employees
+            </Link>
+          </li>
+        ) : null}
       </ul>
     </aside>
   );
