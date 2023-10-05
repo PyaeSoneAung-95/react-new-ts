@@ -2,11 +2,12 @@ import Menu, { MenuItem } from "rc-menu";
 import { AiOutlineLogout, AiOutlinePlus } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { TiThListOutline } from "react-icons/ti";
+import { HiOutlineUsers } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 
 export default function ProfileMenu() {
-  const { updateUser } = useAuth();
+  const { user, updateUser } = useAuth();
 
   return (
     <Menu className="menu">
@@ -28,6 +29,15 @@ export default function ProfileMenu() {
           My News
         </Link>
       </MenuItem>
+      {user?.role === "admin" ? (
+        <MenuItem>
+          <Link to="/account/employees" className="menuItem">
+            <HiOutlineUsers className="mr-2 w-6 h-6" />
+            Employees
+          </Link>
+        </MenuItem>
+      ) : null}
+
       <MenuItem key="logout">
         <button className="menuItem" onClick={() => updateUser(null)}>
           <AiOutlineLogout className="mr-3 w-6 h-6" />

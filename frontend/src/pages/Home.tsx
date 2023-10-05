@@ -23,7 +23,7 @@ export default function Home() {
               View more
             </Link>
           </div>
-          <div className="mt-5 grid grid-cols-4 gap-6">
+          <div className="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {group.list.map((item: NewsResponse) => (
               <NewsCard item={item} key={item._id} />
             ))}

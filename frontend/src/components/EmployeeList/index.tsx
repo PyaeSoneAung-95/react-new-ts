@@ -4,6 +4,7 @@ import AspectRatio from "../AspectRatio";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../utils/toastOptions";
 import { AiFillCheckCircle } from "react-icons/ai";
+import EmployeeSkeleton from "../Skeleton/EmployeesSkeleton";
 
 const fetchEmployees = (): Promise<EmployeeResponse> =>
   axiosInstance.get("/employee");
@@ -21,7 +22,7 @@ export default function EmployeeTable() {
     mutationFn: updateStatus,
   });
 
-  if (isLoading) return null;
+  if (isLoading) return <EmployeeSkeleton />;
 
   const handleConfirm = (id: string) => {
     mutateAsync(id, {
@@ -39,7 +40,7 @@ export default function EmployeeTable() {
       {data?.employees.map((employee) => (
         <div
           key={employee._id}
-          className="p-3 rounded-md bg-white flex gap-3 items-center"
+          className="p-3 rounded-md bg-white flex gap-3 items-center h-fit"
         >
           <AspectRatio
             ratio={1 / 1}
@@ -50,6 +51,17 @@ export default function EmployeeTable() {
           <div className="flex-1">
             <p className="text-lg font-medium">{employee.name}</p>
             <p className="text-base text-gray-500">{employee.email}</p>
+            <ul className="mt-2">
+              {employee.phone_numbers &&
+                employee.phone_numbers.map((phone_number, index) => (
+                  <li key={index} className="inline-block text-blue-500">
+                    {phone_number}
+                    {employee.phone_numbers.length !== index + 1 ? (
+                      <span className="mr-2">,</span>
+                    ) : null}
+                  </li>
+                ))}
+            </ul>
           </div>
           <div>
             {employee.status ? (

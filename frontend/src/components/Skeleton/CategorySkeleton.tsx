@@ -8,7 +8,7 @@ export default function CategorySkeleton() {
         <h2 className="text-2xl font-medium">
           <Skeleton count={1} className="w-full max-w-[100px]" />
         </h2>
-        <div className="mt-5 grid grid-cols-4 gap-x-6 gap-y-8">
+        <div className="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
           {Array(4)
             .fill("")
             .map((_item, index) => (

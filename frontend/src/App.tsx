@@ -26,7 +26,7 @@ function App() {
         <HelmetProvider>
           <AuthProvider>
             <Navbar />
-            <main className="mt-16 p-6">
+            <main className="mt-16 py-6 md:p-6">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/news/:newsId" element={<NewsDetail />} />

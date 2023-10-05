@@ -10,7 +10,7 @@ export default function Private() {
   return (
     <>
       <Sidebar />
-      <section className="ml-56 px-4 py-6">
+      <section className="ml-0 md:ml-56 px-4 py-6">
         <Outlet />
       </section>
     </>

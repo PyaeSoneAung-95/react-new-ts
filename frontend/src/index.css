@@ -70,7 +70,7 @@
     @apply px-3 py-2 text-base font-medium cursor-pointer hover:bg-gray-100 w-full flex items-center;
   }
   .sidebar {
-    @apply fixed top-16 left-0 w-56 bg-white shadow-md border-r h-full;
+    @apply fixed top-16 left-0 w-56 bg-white shadow-md border-r h-full hidden md:block;
   }
   .sidebarItem {
     @apply px-3 py-4 mb-2 text-base font-medium cursor-pointer hover:bg-gray-100 w-full flex items-center rounded-md;

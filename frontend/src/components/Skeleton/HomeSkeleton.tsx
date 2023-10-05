@@ -13,7 +13,7 @@ export default function HomeSkeleton() {
                 <Skeleton height="32px" width="200px" count={1} />
                 <Skeleton height="32px" width="80px" count={1} />
               </div>
-              <div className="mt-5 grid grid-cols-4 gap-6">
+              <div className="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {Array(4)
                   .fill("")
                   .map((_innerItem, index) => (

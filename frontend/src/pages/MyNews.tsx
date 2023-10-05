@@ -24,7 +24,7 @@ export default function MyNews() {
   return (
     <div className="container">
       <SEO title="Account | My News" />
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {data?.news && data.news.length > 0 ? (
           data.news.map((item: NewsResponse) => (
             <div className="relative" key={item._id}>
