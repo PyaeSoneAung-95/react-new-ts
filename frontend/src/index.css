@@ -37,7 +37,8 @@
     @apply text-red-500 mt-1 block text-sm pl-1;
   }
   .name-twoLine {
-    @apply flex-1 my-1 line-clamp-2 font-semibold leading-6;
+    @apply flex-1 my-1 line-clamp-2 font-semibold text-base;
+    height: calc(2 * 1.5rem);
   }
   .myanmar p,
   .myanmar {
@@ -55,6 +56,9 @@
   .dot {
     @apply relative  before:absolute before:top-1/2  before:left-0 pl-[8px] 
     before:translate-y-[-50%] before:w-[5px] before:h-[5px] before:rounded-full;
+  }
+  .dot-large {
+    @apply before:w-[8px] before:h-[8px] pl-[11px];
   }
   .loadingWrapper {
     @apply flex items-center justify-center;

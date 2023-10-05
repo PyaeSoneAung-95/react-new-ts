@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export default function AspectRatio({
   ratio = 564 / 840,
   children,
-  customStyles,
+  customStyles = "",
 }: AspectRatioProps) {
   const frameRef = useRef<HTMLDivElement>(null);
 

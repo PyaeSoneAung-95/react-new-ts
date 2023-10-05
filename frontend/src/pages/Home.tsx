@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { useNewsGroupByCategoryData } from "../hooks/useNewsGroupByCategoryData";
 import NewsCard from "../components/NewsCard";
+import HomeSkeleton from "../components/Skeleton/HomeSkeleton";
 
 export default function Home() {
   const { data, isLoading } = useNewsGroupByCategoryData();
 
-  if (isLoading) return null;
+  if (isLoading) return <HomeSkeleton />;
 
   return (
     <div className="container">

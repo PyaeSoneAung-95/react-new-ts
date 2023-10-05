@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import NewsCard from "../components/NewsCard";
 import SEO from "../components/SEO";
+import CategorySkeleton from "../components/Skeleton/CategorySkeleton";
 
 const getNewsByCategory = ({
   queryKey,
@@ -18,7 +19,10 @@ export default function Category() {
     queryFn: getNewsByCategory,
   });
 
-  if (isLoading) return null;
+  if (isLoading) {
+    console.log(data);
+    return <CategorySkeleton />;
+  }
 
   return (
     <section className="container">

@@ -8,6 +8,10 @@ type User = {
   phone_numbers: string[];
 };
 
+type EmployeeResponse={
+  employees: User[]
+}
+
 type UploadProfileResponse={
   success: boolean;
   data: User,
@@ -62,7 +66,7 @@ type SEOProps = {
 
 type AspectRatioProps = {
   ratio?: number;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   customStyles?: string;
 };
 
@@ -126,6 +130,11 @@ type EmployeeFormResponse = {
 }
 
 type DeleteNewsResponse={
+  success: boolean;
+  message: string;
+}
+
+type SimpleResponse ={
   success: boolean;
   message: string;
 }

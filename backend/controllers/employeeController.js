@@ -2,9 +2,16 @@ const Employee = require("../models/employeeModel");
 const cloudinaryUpload = require("../utils/cloudinaryUpload");
 const fs = require("fs-extra");
 
+exports.getAll = async (req, res) => {
+  const findResult = await Employee.find({ role: "employee" });
+  if (findResult) {
+    return res.status(200).json({ employees: findResult });
+  }
+};
+
 exports.login = async (req, res) => {
   const data = req.body;
-  const findResult = await Employee.findOne(data).select(
+  const findResult = await Employee.findOne({ ...data, status: true }).select(
     "-password -__v -updatedAt -createdAt"
   );
   if (findResult) {
@@ -72,3 +79,12 @@ exports.updateProfile = async (req, res) => {
     });
   }
 };
+
+exports.updateStatus=async(req, res)=>{
+  const {id}=req.params;
+  const data=req.body;
+  const updateResult=await Employee.findByIdAndUpdate(id, data)
+  if(updateResult){
+    return res.status(200).json({success: true, message: "Update successful!"});
+  }
+}

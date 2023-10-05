@@ -14,6 +14,7 @@ import MyNews from "./pages/MyNews";
 import CreateNews from "./pages/CreateNews";
 import Account from "./pages/Account";
 import Employees from "./pages/Employees";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const queryClient = new QueryClient();
 

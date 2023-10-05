@@ -3,12 +3,13 @@ import AspectRatio from "../components/AspectRatio";
 import { format } from "date-fns";
 import SEO from "../components/SEO";
 import useNewsDetail from "../hooks/useNewsDetail";
+import NewsDetailSkeleton from "../components/Skeleton/NewsDetailSkeleton";
 
 export default function NewsDetail() {
   const { newsId } = useParams();
   const { data, isLoading } = useNewsDetail(newsId!);
 
-  if (isLoading) return null;
+  if (isLoading) return <NewsDetailSkeleton />;
 
   return (
     <section className="container__small">
@@ -20,7 +21,7 @@ export default function NewsDetail() {
           </div>
           <div className="mt-5 mb-3">
             <AspectRatio>
-              <img src={data.news.image} alt="" />
+              <img src={data.news.image} alt="" className="w-full h-full" />
             </AspectRatio>
           </div>
           <div className="mb-5">
