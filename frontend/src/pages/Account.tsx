@@ -8,7 +8,6 @@ import axiosInstance from "../utils/axiosInstance";
 import { toastOptions } from "../utils/toastOptions";
 import { toast } from "react-toastify";
 import { useRef, useState } from "react";
-import { ThreeDots } from "react-loader-spinner";
 import OverlayLoading from "../components/OverlayLoading";
 
 const uploadProfile = ({

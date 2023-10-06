@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import AspectRatio from "../AspectRatio";
 
 export default function ImageUpload({ name }: { name: string }) {
-  const [field, meta, helpers] = useField(name);
+  const [_field, meta, helpers] = useField(name);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDrag, setIsDrag] = useState<boolean>(false);
   const [preview, setPreview] = useState<ArrayBuffer | string>("");
