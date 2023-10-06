@@ -36,11 +36,11 @@ export default function EmployeeTable() {
   };
 
   return (
-    <div className="p-3 grid grid-cols-2 gap-6">
+    <div className="p-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
       {data?.employees.map((employee) => (
         <div
           key={employee._id}
-          className="p-3 rounded-md bg-white flex gap-3 items-center h-fit"
+          className="p-3 rounded-md bg-gray-100 md:bg-white flex gap-3 items-center h-fit"
         >
           <AspectRatio
             ratio={1 / 1}

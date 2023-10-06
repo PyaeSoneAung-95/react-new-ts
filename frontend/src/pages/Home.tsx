@@ -13,7 +13,10 @@ export default function Home() {
     <div className="container">
       <SEO title="Home" />
       {data?.news.map((group: NewsGroupByCategory) => (
-        <div key={group.category} className="mb-10 bg-white p-4">
+        <div
+          key={group.category}
+          className="mb-0 md:mb-10 bg-white p-4 border-b last-of-type:border-none md:border-none"
+        >
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-medium">{group.category}</h2>
             <Link

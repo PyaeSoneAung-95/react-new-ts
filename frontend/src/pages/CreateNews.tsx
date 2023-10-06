@@ -43,9 +43,9 @@ export default function CreateNews() {
   return (
     <div>
       <SEO title="Account | Create News" />
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl m-auto md:m-0">
         <h2 className="mb-3 font-medium text-xl">Create News</h2>
-        <div className="bg-white p-6">
+        <div className="bg-white p-0 md:p-6">
           <NewsForm handleSubmit={handleSubmit} initialValues={initialValues} />
         </div>
       </div>

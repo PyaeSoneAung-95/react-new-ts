@@ -2,7 +2,7 @@ import Skeleton from "react-loading-skeleton";
 
 export default function EmployeeSkeleton() {
   return (
-    <div className="p-3 grid grid-cols-2 gap-6">
+    <div className="p-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
       {Array(2)
         .fill("")
         .map((_, index) => (

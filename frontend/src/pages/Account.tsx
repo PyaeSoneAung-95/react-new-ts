@@ -57,8 +57,8 @@ export default function Account() {
   return (
     <div className="flex justify-center py-6">
       <SEO title="Account | Profile" />
-      <div className="bg-white p-6 w-full max-w-2xl">
-        <div className="flex gap-6">
+      <div className="bg-white p-0 md:p-6 w-full max-w-2xl">
+        <div className="flex gap-6 flex-col md:flex-row">
           <div className="w-[130px] relative  h-fit">
             <AspectRatio ratio={1 / 1} customStyles="rounded-full">
               <img
