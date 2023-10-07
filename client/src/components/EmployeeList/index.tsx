@@ -7,10 +7,10 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import EmployeeSkeleton from "../Skeleton/EmployeesSkeleton";
 
 const fetchEmployees = (): Promise<EmployeeResponse> =>
-  axiosInstance.get("/employee");
+  axiosInstance.get("/api/employee");
 
 const updateStatus = (id: string): Promise<SimpleResponse> =>
-  axiosInstance.put(`/api/employee/${id}/status`);
+  axiosInstance.put(`/api/employee/status/${id}`);
 
 export default function EmployeeTable() {
   const queryClient = useQueryClient();

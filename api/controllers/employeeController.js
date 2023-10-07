@@ -82,8 +82,7 @@ export const updateProfile = async (req, res) => {
 
 export const updateStatus=async(req, res)=>{
   const {id}=req.params;
-  const data=req.body;
-  const updateResult=await Employee.findByIdAndUpdate(id, data)
+  const updateResult=await Employee.findByIdAndUpdate(id, {status: true})
   if(updateResult){
     return res.status(200).json({success: true, message: "Update successful!"});
   }
