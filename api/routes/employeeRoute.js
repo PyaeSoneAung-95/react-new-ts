@@ -6,7 +6,7 @@ import {
   update,
   updateProfile,
   updateStatus,
-} from "../controllers.js";
+} from "../controllers/employeeController.js";
 import upload from "../middleware/upload.js";
 
 const router = express.Router();
