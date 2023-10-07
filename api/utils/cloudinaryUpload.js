@@ -1,4 +1,4 @@
-const cloudinary = require("cloudinary").v2;
+import cloudinary from "cloudinary";
 
 cloudinary.config({
   cloud_name: "fooddeliveryservice",
@@ -8,4 +8,4 @@ cloudinary.config({
 
 const cloudinaryUpload = cloudinary.uploader;
 
-module.exports = cloudinaryUpload;
+export default  cloudinaryUpload;

@@ -1,12 +1,21 @@
-const router= require("express").Router();
-const employeeController = require("../controllers/employeeController");
-const upload = require("../middleware/upload");
+import express from "express";
+import {
+  getAll,
+  login,
+  signup,
+  update,
+  updateProfile,
+  updateStatus,
+} from "../controllers/js";
+import upload from "../middleware/upload.js";
 
-router.get("/", employeeController.getAll);
-router.post("/login", employeeController.login);
-router.post("/signup", employeeController.signup);
-router.put("/", employeeController.update);
-router.put("/profile/:id", upload.single("file"), employeeController.updateProfile)
-router.put("/:id/status", employeeController.updateStatus);
+const router = express.Router();
 
-module.exports = router;
+router.get("/", getAll);
+router.post("/login", login);
+router.post("/signup", signup);
+router.put("/", update);
+router.put("/profile/:id", upload.single("file"), updateProfile);
+router.put("/:id/status", updateStatus);
+
+export default router;

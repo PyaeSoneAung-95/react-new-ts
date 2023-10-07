@@ -1,13 +1,23 @@
-const router = require("express").Router();
-const upload = require("../middleware/upload");
-const newsController = require("../controllers/newsController");
+import express from "express";
+import upload from "../middleware/upload.js";
+import {
+  getNewsGroupByCategory,
+  getNewsByCategory,
+  getNewsByEmployeeId,
+  getNewsById,
+  create,
+  deleteNews,
+  update,
+} from "../controllers/newsController";
 
-router.get("/group_by_category", newsController.getNewsGroupByCategory);
-router.get("/category", newsController.getNewsByCategory);
-router.get("/employee/:employeeId", newsController.getNewsByEmployeeId);
-router.get("/:newsId", newsController.getNewsById);
-router.post("/", upload.single("file"), newsController.create);
-router.delete("/:id", newsController.delete);
-router.put("/", upload.single("file"), newsController.update);
+const router = express.Router();
 
-module.exports = router;
+router.get("/group_by_category", getNewsGroupByCategory);
+router.get("/category", getNewsByCategory);
+router.get("/employee/:employeeId", getNewsByEmployeeId);
+router.get("/:newsId", getNewsById);
+router.post("/", upload.single("file"), create);
+router.delete("/:id", deleteNews);
+router.put("/", upload.single("file"), update);
+
+export default router;

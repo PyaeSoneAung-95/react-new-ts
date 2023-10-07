@@ -1,15 +1,15 @@
-const Employee = require("../models/employeeModel");
-const cloudinaryUpload = require("../utils/cloudinaryUpload");
-const fs = require("fs-extra");
+import Employee from "../models/employeeModel.js";
+import cloudinaryUpload from "../utils/cloudinaryUpload.js";
+import fs from "fs-extra";
 
-exports.getAll = async (req, res) => {
+export const getAll = async (req, res) => {
   const findResult = await Employee.find({ role: "employee" });
   if (findResult) {
     return res.status(200).json({ employees: findResult });
   }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const data = req.body;
   const findResult = await Employee.findOne({ ...data, status: true }).select(
     "-password -__v -updatedAt -createdAt"
@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
   const data = req.body;
   const findResult = await Employee.findOne({ email: data.email });
   if (findResult) {
@@ -41,7 +41,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.update = async (req, res) => {
+export const update = async (req, res) => {
   const data = req.body;
   const updateResult = await Employee.findByIdAndUpdate(data._id, data, {
     new: true,
@@ -55,7 +55,7 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   const { id } = req.params;
   const file = req.file;
   const url = await cloudinaryUpload
@@ -80,7 +80,7 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
-exports.updateStatus=async(req, res)=>{
+export const updateStatus=async(req, res)=>{
   const {id}=req.params;
   const data=req.body;
   const updateResult=await Employee.findByIdAndUpdate(id, data)

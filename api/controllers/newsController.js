@@ -1,8 +1,8 @@
-const News = require("../models/newsModel");
-const cloudinaryUpload = require("../utils/cloudinaryUpload");
-const fs = require("fs-extra");
+import News from "../models/newsModel.js";
+import cloudinaryUpload from "../utils/cloudinaryUpload.js";
+import fs from "fs-extra";
 
-exports.create = async (req, res) => {
+export const create = async (req, res) => {
   const data = JSON.parse(req.body.data);
   const file = req.file;
   const url = await cloudinaryUpload
@@ -17,7 +17,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.getNewsGroupByCategory = async (req, res) => {
+export const getNewsGroupByCategory = async (req, res) => {
   const findResult = await News.aggregate([
     {
       $sort: {
@@ -46,7 +46,7 @@ exports.getNewsGroupByCategory = async (req, res) => {
   }
 };
 
-exports.getNewsById = async (req, res) => {
+export const getNewsById = async (req, res) => {
   const { newsId } = req.params;
   const findResult = await News.findById(newsId);
 
@@ -55,7 +55,7 @@ exports.getNewsById = async (req, res) => {
   }
 };
 
-exports.getNewsByCategory = async (req, res) => {
+export const getNewsByCategory = async (req, res) => {
   const { name } = req.query;
   const findResult = await News.find({ category: name });
   if (findResult) {
@@ -63,7 +63,7 @@ exports.getNewsByCategory = async (req, res) => {
   }
 };
 
-exports.getNewsByEmployeeId = async (req, res) => {
+export const getNewsByEmployeeId = async (req, res) => {
   const { employeeId } = req.params;
   const findResult = await News.find({ author_id: employeeId });
   if (findResult) {
@@ -71,7 +71,7 @@ exports.getNewsByEmployeeId = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
+export const deleteNews = async (req, res) => {
   const { id } = req.params;
   const deleteResult = await News.findByIdAndDelete(id);
   if (deleteResult) {
@@ -81,7 +81,7 @@ exports.delete = async (req, res) => {
   }
 };
 
-exports.update = async (req, res) => {
+export const update = async (req, res) => {
   const file = req.file;
   const data = JSON.parse(req.body.data);
   if (file) {

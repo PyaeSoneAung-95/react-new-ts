@@ -1,13 +1,13 @@
-const express = require("express");
-const cors = require("cors");
-const dotEnv = require("dotenv");
-const mongoose = require("mongoose");
-const app = express();
-const newsRoute = require("./routes/newsRoute");
-const employeeRoute = require("./routes/employeeRoute");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import dotEnv from "dotenv";
+import mongoose from "mongoose";
+import newsRoute from "./routes/newsRoute.js";
+import employeeRoute from "./routes/employeeRoute.js";
+import path from "path";
 
 const __dirname = path.resolve();
+const app = express();
 
 //middleware
 app.use(express.json());
