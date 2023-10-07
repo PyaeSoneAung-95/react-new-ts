@@ -22,7 +22,7 @@ const initialValues = {
 };
 
 const login = (data: Login): Promise<LoginResponse> =>
-  axiosInstance.post("/employee/login", data);
+  axiosInstance.post("/api/employee/login", data);
 
 export default function Login({ handleTag }: AuthTagHandler) {
   const { updateUser } = useAuth();

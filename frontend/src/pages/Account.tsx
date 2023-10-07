@@ -17,7 +17,7 @@ const uploadProfile = ({
   file: FormData;
   id: string | undefined;
 }): Promise<UploadProfileResponse> =>
-  axiosInstance.put(`/employee/profile/${id}`, file);
+  axiosInstance.put(`/api/employee/profile/${id}`, file);
 
 export default function Account() {
   const { user, updateUser } = useAuth();

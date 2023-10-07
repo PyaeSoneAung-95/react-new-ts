@@ -15,7 +15,7 @@ const signupSchema = Yup.object().shape({
 });
 
 const signup = (data: Signup): Promise<SignupResonse> =>
-  axiosInstance.post("/employee/signup", data);
+  axiosInstance.post("/api/employee/signup", data);
 
 export default function Signup({ handleTag }: AuthTagHandler) {
   const { mutateAsync } = useMutation({

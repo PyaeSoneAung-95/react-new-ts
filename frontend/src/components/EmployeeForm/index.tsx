@@ -12,7 +12,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import Input from "../Input";
 
 const updateInfo = (data: User): Promise<EmployeeFormResponse> =>
-  axiosInstance.put("/employee", data);
+  axiosInstance.put("/api/employee", data);
 
 const formSchema = Yup.object({
   name: Yup.string().required("Username is required!"),

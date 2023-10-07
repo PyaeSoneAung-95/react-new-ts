@@ -30,7 +30,7 @@ export default function ProfileMenu() {
         </Link>
       </MenuItem>
       {user?.role === "admin" ? (
-        <MenuItem>
+        <MenuItem key="employees">
           <Link to="/account/employees" className="menuItem">
             <HiOutlineUsers className="mr-2 w-6 h-6" />
             Employees

@@ -16,7 +16,7 @@ const initialValues = {
 };
 
 const createNews = (data: FormData): Promise<CreateNewsResponse> =>
-  axiosInstance.post("/news", data);
+  axiosInstance.post("/api/news", data);
 
 export default function CreateNews() {
   const { user } = useAuth();

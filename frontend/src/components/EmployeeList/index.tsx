@@ -10,7 +10,7 @@ const fetchEmployees = (): Promise<EmployeeResponse> =>
   axiosInstance.get("/employee");
 
 const updateStatus = (id: string): Promise<SimpleResponse> =>
-  axiosInstance.put(`/employee/${id}/status`);
+  axiosInstance.put(`/api/employee/${id}/status`);
 
 export default function EmployeeTable() {
   const queryClient = useQueryClient();

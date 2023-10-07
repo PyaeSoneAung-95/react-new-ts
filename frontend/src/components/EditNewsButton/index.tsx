@@ -10,7 +10,7 @@ import { Submit } from "../../types/formik";
 import { useAuth } from "../../providers/AuthProvider";
 
 const editNews = (values: FormData): Promise<DeleteNewsResponse> =>
-  axiosInstance.put("/news", values);
+  axiosInstance.put("/api/news", values);
 
 export default function EditNewsButton({ item }: { item: NewsResponse }) {
   const { user } = useAuth();

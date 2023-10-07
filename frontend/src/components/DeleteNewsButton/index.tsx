@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useAuth } from "../../providers/AuthProvider";
 
 const deleteNews = (id: string): Promise<DeleteNewsResponse> =>
-  axiosInstance.delete(`/news/${id}`);
+  axiosInstance.delete(`/api/news/${id}`);
 
 export default function DeleteNewsButton({ newsId }: { newsId: string }) {
   const [show, setShow] = useState<boolean>(false);

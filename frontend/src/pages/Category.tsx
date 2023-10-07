@@ -10,7 +10,7 @@ const getNewsByCategory = ({
 }: {
   queryKey: string[];
 }): Promise<NewsByCategory> =>
-  axiosInstance.get(`/news/category?name=${queryKey[1]}`);
+  axiosInstance.get(`/api/news/category?name=${queryKey[1]}`);
 
 export default function Category() {
   const { name } = useParams();
@@ -19,10 +19,7 @@ export default function Category() {
     queryFn: getNewsByCategory,
   });
 
-  if (isLoading) {
-    console.log(data);
-    return <CategorySkeleton />;
-  }
+  if (isLoading) return <CategorySkeleton />;
 
   return (
     <section className="container">

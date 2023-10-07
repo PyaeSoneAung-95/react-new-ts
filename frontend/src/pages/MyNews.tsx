@@ -9,7 +9,8 @@ import MyNewsSkeleton from "../components/Skeleton/MyNewsSkeleton";
 
 const getNewsByEmployeeId = (
   employeeId: string | undefined
-): Promise<NewsByCategory> => axiosInstance.get(`/news/employee/${employeeId}`);
+): Promise<NewsByCategory> =>
+  axiosInstance.get(`/api/news/employee/${employeeId}`);
 
 export default function MyNews() {
   const { user } = useAuth();
