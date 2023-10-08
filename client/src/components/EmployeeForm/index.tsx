@@ -1,6 +1,4 @@
 import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { BiPlus } from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -10,6 +8,7 @@ import { toastOptions } from "../../utils/toastOptions";
 import { Submit } from "../../types/formik";
 import axiosInstance from "../../utils/axiosInstance";
 import Input from "../Input";
+import Icon from "../Icon";
 
 const updateInfo = (data: User): Promise<EmployeeFormResponse> =>
   axiosInstance.put("/api/employee", data);
@@ -66,7 +65,10 @@ export default function EmployeeForm() {
                               className="input-control flex-1"
                             />
                             <button onClick={() => arrayHelpers.remove(index)}>
-                              <AiFillCloseCircle className="w-8 h-8 text-red-400" />
+                              <Icon
+                                name="closeCircle"
+                                className="w-8 h-8 text-red-400"
+                              />
                             </button>
                           </div>
                           <ErrorMessage
@@ -88,7 +90,7 @@ export default function EmployeeForm() {
                     className="text-blue-500 flex items-center"
                     onClick={() => arrayHelpers.push("")}
                   >
-                    <BiPlus className="w-5 h-5 mr-1" />
+                    <Icon name="plus" className="w-5 h-5 mr-1" />
                     Add phone number
                   </button>
                 </div>

@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { BsTrash3 } from "react-icons/bs";
 import axiosInstance from "../../utils/axiosInstance";
 import { toastOptions } from "../../utils/toastOptions";
 import { toast } from "react-toastify";
 import Modal from "../Modal";
 import { useState } from "react";
 import { useAuth } from "../../providers/AuthProvider";
+import Icon from "../Icon";
 
 const deleteNews = (id: string): Promise<DeleteNewsResponse> =>
   axiosInstance.delete(`/api/news/${id}`);
@@ -64,7 +64,7 @@ export default function DeleteNewsButton({ newsId }: { newsId: string }) {
         onClick={handleOpen}
         className="p-2 rounded-full bg-red-200 text-red-600"
       >
-        <BsTrash3 className="w-5 h-5" />
+        <Icon name="delete" className="w-5 h-5" />
       </button>
     </>
   );

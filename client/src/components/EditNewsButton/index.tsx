@@ -3,11 +3,11 @@ import { useState } from "react";
 import NewsForm from "../NewsForm";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import { HiOutlinePencilAlt } from "react-icons/hi";
 import axiosInstance from "../../utils/axiosInstance";
 import { toastOptions } from "../../utils/toastOptions";
 import { Submit } from "../../types/formik";
 import { useAuth } from "../../providers/AuthProvider";
+import Icon from "../Icon";
 
 const editNews = (values: FormData): Promise<DeleteNewsResponse> =>
   axiosInstance.put("/api/news", values);
@@ -62,7 +62,7 @@ export default function EditNewsButton({ item }: { item: NewsResponse }) {
         className="p-2 bg-blue-200 text-blue-600 rounded-full"
         onClick={handleOpen}
       >
-        <HiOutlinePencilAlt className="w-5 h-5" />
+        <Icon name="edit" className="w-5 h-5" />
       </button>
     </>
   );

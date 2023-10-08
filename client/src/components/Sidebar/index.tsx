@@ -1,9 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { BiUserCircle } from "react-icons/bi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { TiThListOutline } from "react-icons/ti";
-import { HiOutlineUsers } from "react-icons/hi";
 import { useAuth } from "../../providers/AuthProvider";
+import Icon from "../Icon";
 
 export default function Sidebar() {
   const { pathname } = useLocation();
@@ -17,7 +14,7 @@ export default function Sidebar() {
             to="/account"
             className={`sidebarItem ${pathname === "/account" ? "active" : ""}`}
           >
-            <BiUserCircle className="mr-2 w-7 h-7" />
+            <Icon name="user" className="mr-2 w-7 h-7" />
             Profile Setting
           </Link>
         </li>
@@ -28,7 +25,7 @@ export default function Sidebar() {
               pathname === "/account/create_news" ? "active" : ""
             }`}
           >
-            <AiOutlinePlus className="mr-2 w-6 h-6" />
+            <Icon name="plus" className="mr-2 w-6 h-6" />
             Create News
           </Link>
         </li>
@@ -39,7 +36,7 @@ export default function Sidebar() {
               pathname === "/account/mynews" ? "active" : ""
             }`}
           >
-            <TiThListOutline className="mr-2 w-6 h-6" />
+            <Icon name="list" className="mr-2 w-6 h-6" />
             My News
           </Link>
         </li>
@@ -51,7 +48,7 @@ export default function Sidebar() {
                 pathname === "/account/employees" ? "active" : ""
               }`}
             >
-              <HiOutlineUsers className="mr-2 w-6 h-6" />
+              <Icon name="users" className="mr-2 w-6 h-6" />
               Employees
             </Link>
           </li>

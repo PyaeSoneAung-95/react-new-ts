@@ -3,8 +3,8 @@ import axiosInstance from "../../utils/axiosInstance";
 import AspectRatio from "../AspectRatio";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../utils/toastOptions";
-import { AiFillCheckCircle } from "react-icons/ai";
 import EmployeeSkeleton from "../Skeleton/EmployeesSkeleton";
+import Icon from "../Icon";
 
 const fetchEmployees = (): Promise<EmployeeResponse> =>
   axiosInstance.get("/api/employee");
@@ -65,7 +65,7 @@ export default function EmployeeTable() {
           </div>
           <div>
             {employee.status ? (
-              <AiFillCheckCircle className="w-7 h-7 text-green-500" />
+              <Icon name="checkCircle" className="w-7 h-7 text-green-500" />
             ) : (
               <button
                 className="text-sm p-2 bg-orange-100 text-orange-500 rounded-md"

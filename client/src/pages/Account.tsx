@@ -1,5 +1,4 @@
 import AspectRatio from "../components/AspectRatio";
-import { AiOutlineCamera } from "react-icons/ai";
 import EmployeeForm from "../components/EmployeeForm";
 import SEO from "../components/SEO";
 import { useAuth } from "../providers/AuthProvider";
@@ -9,6 +8,7 @@ import { toastOptions } from "../utils/toastOptions";
 import { toast } from "react-toastify";
 import { useRef, useState } from "react";
 import OverlayLoading from "../components/OverlayLoading";
+import Icon from "../components/Icon";
 
 const uploadProfile = ({
   file,
@@ -82,7 +82,7 @@ export default function Account() {
               onClick={handleClick}
               className="absolute left-[50%] translate-y-[50%] bottom-0 -translate-x-[50%] bg-blue-100 p-2 rounded-full"
             >
-              <AiOutlineCamera className="w-5 h-5 text-blue-500" />
+              <Icon name="camera" className="w-5 h-5 text-blue-500" />
             </button>
           </div>
           <div className="flex-1">
