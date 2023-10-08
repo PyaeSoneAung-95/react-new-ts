@@ -56,18 +56,38 @@ export const getNewsById = async (req, res) => {
 };
 
 export const getNewsByCategory = async (req, res) => {
-  const { name } = req.query;
-  const findResult = await News.find({ category: name });
+  const { name, page, limit } = req.query;
+  const total_count = await News.countDocuments({ category: name });
+  const total_page =
+    total_count % limit === 0
+      ? total_count / limit
+      : Math.floor(total_count / limit + 1);
+
+  const findResult = await News.find({ category: name })
+    .sort({ createdAt: -1 })
+    .skip((page - 1) * limit)
+    .limit(limit);
   if (findResult) {
-    return res.status(200).json({ news: findResult });
+    return res.status(200).json({ news: findResult, total_page });
   }
 };
 
 export const getNewsByEmployeeId = async (req, res) => {
   const { employeeId } = req.params;
-  const findResult = await News.find({ author_id: employeeId });
+  const { page, limit } = req.query;
+  const total_count = await News.countDocuments({ author_id: employeeId });
+  const total_page =
+    total_count % limit === 0
+      ? total_count / limit
+      : Math.floor(total_count / limit + 1);
+
+  const findResult = await News.find({ author_id: employeeId })
+    .sort({ createdAt: -1 })
+    .skip((page - 1) * limit)
+    .limit(limit);
+
   if (findResult) {
-    return res.status(200).json({ news: findResult });
+    return res.status(200).json({ news: findResult, total_page });
   }
 };
 

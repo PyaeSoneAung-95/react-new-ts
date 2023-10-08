@@ -8,15 +8,15 @@ type User = {
   phone_numbers: string[];
 };
 
-type EmployeeResponse={
-  employees: User[]
-}
+type EmployeeResponse = {
+  employees: User[];
+};
 
-type UploadProfileResponse={
+type UploadProfileResponse = {
   success: boolean;
-  data: User,
+  data: User;
   message: string;
-}
+};
 
 type AuthContext = {
   user: User | null;
@@ -106,6 +106,7 @@ type NewsDetailResponse = {
 
 type NewsByCategory = {
   news: NewsResponse[];
+  total_page:  number;
 };
 
 type CategoryOption = {
@@ -126,15 +127,19 @@ type CustomHeaderProps = {
 type EmployeeFormResponse = {
   success: boolean;
   message: string;
-  data: User
-}
+  data: User;
+};
 
-type DeleteNewsResponse={
+type DeleteNewsResponse = {
   success: boolean;
   message: string;
-}
+};
 
-type SimpleResponse ={
+type SimpleResponse = {
   success: boolean;
   message: string;
-}
+};
+
+type NewsByEmployeeId = {
+  queryKey: [string, { employeeId: string | undefined }, number];
+};

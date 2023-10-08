@@ -164,3 +164,42 @@
   border-bottom-right-radius: 5px;
   font-size: 1rem;
 }
+
+.pagination {
+  justify-content: center;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 448px;
+  margin: 0;
+}
+
+.page-item .page-link {
+  position: relative;
+  display: block;
+  margin: 0 2px;
+  min-height: 40px;
+  min-width: 40px;
+  user-select: none;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.page-item:not(.active) a.page-link:hover {
+  background-color: rgb(219 234 254);
+}
+
+.page-item.active .page-link {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #007bff;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  cursor: not-allowed;
+}
