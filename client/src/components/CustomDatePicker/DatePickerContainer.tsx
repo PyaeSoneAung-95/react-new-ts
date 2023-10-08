@@ -1,4 +1,3 @@
-//@ts-ignore
 import { CalendarContainer } from "react-datepicker";
 
 export default function DatePickerContainer({

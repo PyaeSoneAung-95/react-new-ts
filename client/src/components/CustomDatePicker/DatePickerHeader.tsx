@@ -1,3 +1,4 @@
+import { ReactDatePickerCustomHeaderProps } from "react-datepicker";
 import { range, getMonth, getYear, months } from "../../utils/date.js";
 
 export default function DatePickerHeader({
@@ -8,7 +9,7 @@ export default function DatePickerHeader({
   increaseMonth,
   prevMonthButtonDisabled,
   nextMonthButtonDisabled,
-}: CustomHeaderProps) {
+}: ReactDatePickerCustomHeaderProps) {
   const years = range(1990, getYear(new Date()) + 1, 1);
   return (
     <div className="w-full flex bg-white p-3 gap-6">
@@ -22,7 +23,7 @@ export default function DatePickerHeader({
       <div className="flex-1">
         <select
           value={getYear(date)}
-          onChange={({ target: { value } }) => changeYear(value)}
+          onChange={({ target: { value } }) => changeYear(parseInt(value))}
         >
           {years.map((option) => (
             <option key={option} value={option}>
