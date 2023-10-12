@@ -58,10 +58,7 @@ export default function EditNewsButton({ item }: { item: NewsResponse }) {
           />
         </div>
       </Modal>
-      <button
-        className="p-2 bg-blue-200 text-blue-600 rounded-full"
-        onClick={handleOpen}
-      >
+      <button className="p-2 bg-blue-200 text-blue-600 rounded-full" onClick={handleOpen}>
         <Icon name="edit" className="w-5 h-5" />
       </button>
     </>

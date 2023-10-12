@@ -11,9 +11,7 @@ export const create = async (req, res) => {
   const savedNews = await News.create({ ...data, image: url });
   fs.remove(file.path);
   if (savedNews) {
-    return res
-      .status(201)
-      .json({ success: true, message: "Create news successful!" });
+    return res.status(201).json({ success: true, message: "Create news successful!" });
   }
 };
 
@@ -59,9 +57,7 @@ export const getNewsByCategory = async (req, res) => {
   const { name, page, limit } = req.query;
   const total_count = await News.countDocuments({ category: name });
   const total_page =
-    total_count % limit === 0
-      ? total_count / limit
-      : Math.floor(total_count / limit + 1);
+    total_count % limit === 0 ? total_count / limit : Math.floor(total_count / limit + 1);
 
   const findResult = await News.find({ category: name })
     .sort({ createdAt: -1 })
@@ -77,9 +73,7 @@ export const getNewsByEmployeeId = async (req, res) => {
   const { page, limit } = req.query;
   const total_count = await News.countDocuments({ author_id: employeeId });
   const total_page =
-    total_count % limit === 0
-      ? total_count / limit
-      : Math.floor(total_count / limit + 1);
+    total_count % limit === 0 ? total_count / limit : Math.floor(total_count / limit + 1);
 
   const findResult = await News.find({ author_id: employeeId })
     .sort({ createdAt: -1 })
@@ -95,9 +89,7 @@ export const deleteNews = async (req, res) => {
   const { id } = req.params;
   const deleteResult = await News.findByIdAndDelete(id);
   if (deleteResult) {
-    return res
-      .status(200)
-      .json({ success: true, message: "Delete news successful!" });
+    return res.status(200).json({ success: true, message: "Delete news successful!" });
   }
 };
 
@@ -117,8 +109,16 @@ export const update = async (req, res) => {
     new: true,
   });
   if (updateResult) {
-    return res
-      .status(200)
-      .json({ success: true, message: "Update news scuccessful!" });
+    return res.status(200).json({ success: true, message: "Update news scuccessful!" });
+  }
+};
+
+export const getRelatedNews = async (req, res) => {
+  const { category, id } = req.query;
+  const findResult = await News.find({ category, _id: { $ne: id } })
+    .sort({ createdAt: -1 })
+    .limit(10);
+  if (findResult) {
+    return res.status(200).json({ news: findResult });
   }
 };

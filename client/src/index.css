@@ -37,7 +37,7 @@
     @apply text-red-500 mt-1 block text-sm pl-1;
   }
   .name-twoLine {
-    @apply flex-1 my-1 line-clamp-2 font-semibold text-base;
+    @apply flex-1 my-1 line-clamp-2 font-semibold leading-6;
     height: calc(2 * 1.5rem);
   }
   .myanmar p,

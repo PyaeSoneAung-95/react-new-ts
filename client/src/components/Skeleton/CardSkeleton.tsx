@@ -1,11 +1,15 @@
 import Skeleton from "react-loading-skeleton";
 import AspectRatio from "../AspectRatio";
 
-export default function CardSkeleton() {
+export default function CardSkeleton({ variant = "col" }) {
   return (
-    <div>
-      <Skeleton wrapper={AspectRatio} count={1} />
-      <div>
+    <div className={variant === "row" ? "flex flex-row gap-6" : ""}>
+      <Skeleton
+        wrapper={AspectRatio}
+        count={1}
+        className={variant === "row" ? "w-[100px]" : ""}
+      />
+      <div className={variant === "row" ? "flex-1" : ""}>
         <p className="mt-3">
           <Skeleton count={2} />
         </p>

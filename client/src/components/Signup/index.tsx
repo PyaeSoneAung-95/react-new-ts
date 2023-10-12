@@ -71,19 +71,19 @@ export default function Signup({ handleTag }: AuthTagHandler) {
                 "Signup"
               )}
             </button>
-            <p className="mt-8">
-              Already have an account?{" "}
-              <button
-                type="button"
-                onClick={() => handleTag("login")}
-                className="text-blue-500 font-semibold"
-              >
-                Login
-              </button>
-            </p>
           </Form>
         )}
       </Formik>
+      <p className="mt-8">
+        Already have an account?{" "}
+        <button
+          type="button"
+          onClick={() => handleTag("login")}
+          className="text-blue-500 font-semibold"
+        >
+          Login
+        </button>
+      </p>
     </div>
   );
 }

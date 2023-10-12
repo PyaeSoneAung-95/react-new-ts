@@ -8,19 +8,14 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import { dropEllipsis } from "react-responsive-pagination/narrowBehaviour";
 
-const getNewsByCategory = (
-  name: string,
-  currentPage: number
-): Promise<NewsByCategory> =>
-  axiosInstance.get(
-    `/api/news/category?name=${name}&page=${currentPage}&limit=12`
-  );
+const getNewsByCategory = (name: string, currentPage: number): Promise<NewsByCategory> =>
+  axiosInstance.get(`/api/news/category?name=${name}&page=${currentPage}&limit=12`);
 
 export default function Category() {
   const { name } = useParams();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { data, isLoading } = useQuery({
-    queryKey: ["news", name!, currentPage],
+    queryKey: ["category", name!, currentPage],
     queryFn: () => getNewsByCategory(name!, currentPage),
     keepPreviousData: true,
   });
